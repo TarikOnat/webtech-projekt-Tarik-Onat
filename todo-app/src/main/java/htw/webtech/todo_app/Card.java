@@ -1,5 +1,10 @@
 package htw.webtech.todo_app;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Card {
     private Long id;
     private String question;
@@ -12,8 +17,4 @@ public class Card {
         this.answer = answer;
     }
 
-    // Getter
-    public Long getId() { return id; }
-    public String getQuestion() { return question; }
-    public String getAnswer() { return answer; }
 }
