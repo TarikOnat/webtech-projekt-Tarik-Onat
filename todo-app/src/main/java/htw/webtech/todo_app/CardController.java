@@ -1,17 +1,28 @@
 package htw.webtech.todo_app;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:5173", "https://dein-frontend.onrender.com"})
 @RestController
 public class CardController {
 
+    private List<Card> cards = new ArrayList<>(List.of(
+            new Card(1L, "Was ist 5 x 5?", "25"),
+            new Card(2L, "Hauptstadt von Deutschland?", "Berlin"),
+            new Card(3L, "Wofür steht HTW?", "Hochschule für Technik und Wirtschaft")
+    ));
+
     @GetMapping("/api/cards")
-    public List<Card> getAllCards() {
-        return List.of(
-                new Card(1L, "Was ist 5x5?", "25"),
-                new Card(2L, "Was ist die Hauptstadt von Deutschland?", "Berlin")
-        );
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    @PostMapping("/api/cards")
+    public Card createCard(@RequestBody Card newCard) {
+        newCard.setId((long) (cards.size() + 1));
+        cards.add(newCard);
+        return newCard;
     }
 }
