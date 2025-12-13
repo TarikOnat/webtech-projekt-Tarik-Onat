@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api/cards")
 public class CardController {
 
@@ -16,6 +15,11 @@ public class CardController {
 
     public CardController(CardService cardService) {
         this.cardService = cardService;
+    }
+
+    @GetMapping
+    public List<Card> getAllCards() {
+        return cardService.getAllCards();
     }
 
     @GetMapping("/deck/{deckId}")

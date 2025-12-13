@@ -15,6 +15,10 @@ public class CardService {
         this.cardRepository = cardRepository;
     }
 
+    public List<Card> getAllCards() {
+        return cardRepository.findAll();
+    }
+
     public List<Card> getCards(Long deckId) {
         return cardRepository.findByDeckId(deckId);
     }
