@@ -5,6 +5,7 @@ import htw.webtech.todo_app.repository.CardRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CardService {
@@ -23,22 +24,30 @@ public class CardService {
         return cardRepository.findByDeckId(deckId);
     }
 
+    public Optional<Card> getCardById(Long id) {
+        return cardRepository.findById(id);
+    }
+
     public Card createCard(Card card) {
         return cardRepository.save(card);
     }
 
-    public Card updateCard(Long id, Card cardData) {
-        Card card = cardRepository.findById(id).orElseThrow();
-
-        card.setQuestion(cardData.getQuestion());
-        card.setAnswer(cardData.getAnswer());
-        card.setLearned(cardData.isLearned());
-
-        return cardRepository.save(card);
+    public Card updateCard(Long id, Card updatedCard) {
+        return cardRepository.findById(id)
+                .map(card -> {
+                    card.setQuestion(updatedCard.getQuestion());
+                    card.setAnswer(updatedCard.getAnswer());
+                    card.setLearned(updatedCard.isLearned());
+                    return cardRepository.save(card);
+                })
+                .orElse(null);
     }
 
-    public void deleteCard(Long id) {
-        cardRepository.deleteById(id);
+    public boolean deleteCard(Long id) {
+        if (cardRepository.existsById(id)) {
+            cardRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
-
