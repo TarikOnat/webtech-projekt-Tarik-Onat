@@ -1,8 +1,10 @@
 package htw.webtech.todo_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,7 +19,6 @@ public class Deck {
     private String title;
 
     @OneToMany(mappedBy = "deck", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Card> cards;
+    @JsonManagedReference
+    private List<Card> cards = new ArrayList<>();
 }
-
-
