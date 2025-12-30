@@ -22,4 +22,5 @@ jobs:
       - name: Build and Test
         run: |
           cd todo-app
-          ./mvnw clean test
+          chmod +x gradlew
+          ./gradlew test
