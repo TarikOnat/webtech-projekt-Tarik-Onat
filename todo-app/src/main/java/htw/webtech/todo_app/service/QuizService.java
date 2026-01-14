@@ -124,7 +124,16 @@ public class QuizService {
 
         boolean isCorrect = switch (answerDTO.getType()) {
             case MULTIPLE_CHOICE -> correctAnswer.equalsIgnoreCase(userAnswer);
-            case TRUE_FALSE -> userAnswer.equalsIgnoreCase("true") || userAnswer.equalsIgnoreCase("false");
+
+            case TRUE_FALSE -> {
+                boolean userSaysTrue = userAnswer.equalsIgnoreCase("true");
+
+                boolean displayedWasCorrect = answerDTO.getDisplayedAnswer() != null
+                        && answerDTO.getDisplayedAnswer().equals(correctAnswer);
+
+                yield userSaysTrue == displayedWasCorrect;
+            }
+
             case FREE_TEXT -> isFreeTextCorrect(userAnswer, correctAnswer);
         };
 

@@ -13,4 +13,5 @@ public class QuizAnswerDTO {
     private Long cardId;
     private String userAnswer;
     private QuizType type;
+    private String displayedAnswer;
 }
