@@ -1,68 +1,88 @@
-# HTW StudyDeck - Backend
+# StudyDeck - Karteikarten Lern-App
 
-**HTW Berlin – Webtechnologien (WiSe 2025/26)**  
-Projekt von: *Tarik Onat*  
-Matrikelnummer: *594787*
+Eine moderne Web-Anwendung zum Erstellen und Lernen von Karteikarten mit Quiz-Funktion.
 
----
+## 🚀 Live Demo
 
-## Projektbeschreibung
+**Frontend:** https://htw-studydeck-frontend.onrender.com  
+**Backend API:** https://htw-studydeck-backend.onrender.com
 
-HTW StudyDeck ist eine Web-App zum Erstellen und Lernen von digitalen Karteikarten.  
-Benutzer können Decks erstellen, Karteikarten hinzufügen und im Lernmodus abfragen.
+## 📖 Funktionen
 
----
+- ✅ Decks erstellen, bearbeiten und löschen
+- ✅ Karteikarten mit Frage & Antwort erstellen
+- ✅ Lernsets zur Organisation von Decks
+- ✅ Lernmodus: Karten durchgehen und als gelernt markieren
+- ✅ Quiz-Modus mit 3 Fragetypen:
+    - Multiple Choice
+    - True/False
+    - Freitext-Eingabe
+- ✅ Fortschrittsanzeige mit Statistiken
 
-## Technologien
+## 🛠️ Tech Stack
 
-- **Backend:** Spring Boot 3, Java 21
-- **Datenbank:** PostgreSQL (Produktion), H2 (Entwicklung)
-- **Deployment:** Render.com
-- **CI/CD:** GitHub Actions
+**Frontend:**
+- Vue.js 3
+- TypeScript
+- Pinia (State Management)
+- Vue Router
+- Axios
 
----
+**Backend:**
+- Spring Boot
+- PostgreSQL
+- JPA/Hibernate
+- Lombok
 
-## API Endpoints
+## 📦 Installation & Start (lokal)
 
-### Decks
-| Methode | Endpoint | Beschreibung |
-|---------|----------|--------------|
-| GET | `/api/decks` | Alle Decks abrufen |
-| GET | `/api/decks/{id}` | Einzelnes Deck abrufen |
-| POST | `/api/decks` | Neues Deck erstellen |
-| PUT | `/api/decks/{id}` | Deck aktualisieren |
-| DELETE | `/api/decks/{id}` | Deck löschen |
-
-### Cards
-| Methode | Endpoint | Beschreibung |
-|---------|----------|--------------|
-| GET | `/api/cards` | Alle Karten abrufen |
-| GET | `/api/cards/deck/{deckId}` | Karten eines Decks |
-| POST | `/api/cards` | Neue Karte erstellen |
-| PUT | `/api/cards/{id}` | Karte aktualisieren |
-| DELETE | `/api/cards/{id}` | Karte löschen |
-
----
-
-## Lokale Entwicklung
+### Backend
 ```bash
 cd todo-app
-./mvnw spring-boot:run
+./gradlew bootRun
 ```
 
-Die API läuft dann unter: http://localhost:8080
+Backend läuft auf: `http://localhost:8080`
 
----
-
-## Tests ausführen
+### Frontend
 ```bash
-cd todo-app
-./mvnw test
+cd studydeck-frontend
+npm install
+npm run dev
 ```
 
----
+Frontend läuft auf: `http://localhost:5173`
 
-## Deployment
+## 📱 Benutzung
 
-- **Backend:** https://htw-studydeck-backend.onrender.com
-- **Frontend:** https://htw-studydeck-frontend.onrender.com
+### 1. Lernset erstellen
+- Navigiere zu "Meine Lernsets"
+- Klicke auf "+ Neues Lernset"
+- Gib einen Titel ein (z.B. "Biologie")
+
+### 2. Deck erstellen
+- Navigiere zu "Meine Decks"
+- Klicke auf "+ Neues Deck"
+- Gib einen Titel ein (z.B. "Zellen")
+
+### 3. Karten hinzufügen
+- Öffne ein Deck
+- Klicke auf "+ Neue Karte"
+- Gib Frage und Antwort ein
+- Speichern
+
+### 4. Lernen
+- Im Deck auf "Lernen" klicken
+- Karte anzeigen → umdrehen → als gelernt markieren
+
+### 5. Quiz starten
+- Im Deck auf "Quiz" klicken
+- Fragen beantworten
+- Ergebnis ansehen
+
+## 🎓 Projekt-Info
+
+- **HTW Berlin** - Webtech Projekt WiSe 2025
+- **Student:** Tarik Onat
+- **Studiengang:** Wirtschaftsinformatik (4. Semester)
+```
