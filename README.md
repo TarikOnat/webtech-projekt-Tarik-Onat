@@ -55,27 +55,24 @@ Frontend läuft auf: `http://localhost:5173`
 
 ## 📱 Benutzung
 
-### 1. Lernset erstellen
-- Navigiere zu "Meine Lernsets"
-- Klicke auf "+ Neues Lernset"
-- Gib einen Titel ein (z.B. "Biologie")
-
-### 2. Deck erstellen
+### 1. Deck erstellen
 - Navigiere zu "Meine Decks"
 - Klicke auf "+ Neues Deck"
 - Gib einen Titel ein (z.B. "Zellen")
+- Titel muss min. 3 Zeichen haben
 
-### 3. Karten hinzufügen
+### 2. Karten hinzufügen
 - Öffne ein Deck
 - Klicke auf "+ Neue Karte"
 - Gib Frage und Antwort ein
 - Speichern
+- Antwort und Frage dürfen nicht leer sein
 
-### 4. Lernen
+### 3. Lernen
 - Im Deck auf "Lernen" klicken
-- Karte anzeigen → umdrehen → als gelernt markieren
+- Karte anzeigen → umdrehen → als gelernt markieren oder nicht gelernt
 
-### 5. Quiz starten
+### 4. Quiz starten
 - Im Deck auf "Quiz" klicken
 - Fragen beantworten
 - Ergebnis ansehen
